@@ -23,6 +23,18 @@ export class HeroFormComponent {
     this.active = false;
     setTimeout(() => this.active = true, 0);
   }
+  
+  values = '';
+
+  onKey(event: KeyboardEvent) { // with type info
+    this.values += (<HTMLInputElement>event.target).value + ' | ';
+  }
+  
+  
+  values1 = '';
+  onKey1(value: string) {
+    this.values1 += value + ' | ';
+  }
 
 }
 

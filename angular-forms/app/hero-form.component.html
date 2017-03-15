@@ -14,6 +14,17 @@
             <input type="text" class="form-control" id="alterEgo" [(ngModel)]="model.alterEgo" name="alterEgo">
         </div>
         <div class="form-group">
+            <label for="event">通过 $event 对象取得用户输入</label>
+            <input type="text" class="form-control" id="event" (keyup)="onKey($event)" name="event">
+            <p>{{values}}</p>
+        </div>
+         <div class="form-group">
+         	<p>传入 $event 是靠不住的做法</p>
+            <label for="event1">从一个模板引用变量中获得用户输入:在标识符前加上井号 (#) 就能声明一个模板引用变量</label>
+            <input type="text" class="form-control" id="event1" #box (keyup)="onKey1(box.value)" name="event1">
+            <p>{{values1}}</p>
+        </div>
+        <div class="form-group">
             <label for="power">Hero Power</label>
             <select class="form-control" id="power" required [(ngModel)]="model.power" name="power">
                 <option *ngFor="let p of powers" [value]="p">{{p}}</option>
